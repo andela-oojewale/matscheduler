@@ -1,3 +1,9 @@
 require "./config/application"
 
-run Todo::Application.new
+MatrackApp = Matrack::Application.new
+
+require "./config/routes"
+
+
+use Rack::Reloader
+run MatrackApp
