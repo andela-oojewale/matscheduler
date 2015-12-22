@@ -1,15 +1,8 @@
-class Task < Todo::ActiveManager
-  begin
-      db.execute "create table sellers(
-                  id Integer PRIMIARY KEY,
-                  name Varchar(80),
-                  alive Boolean,
-                  today_date Date,
-                  now_time Time,
-                  now_now Timestamp
-                  )"
-    rescue SQLite3::Exception => exp
-    puts self.db_error(exp)
-    exit
-    end
+class Task < ActiveManager
+
+  property :task_id, :int, primary_key: true
+  property :title, :str, nullable: false
+  property :start, :str
+  property :done, :str
+  create_table
 end

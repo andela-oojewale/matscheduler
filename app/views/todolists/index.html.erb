@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col m7 offset-m2 left">
+    <h5>Saved Tasks</h5>
+      <table class="bordered highlight">
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Done</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @task.each do |t| %>
+            <tr>
+              <td><%= t.title %></td>
+              <td><%= t.done %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
