@@ -6,8 +6,23 @@ class TodolistsController < Matrack::BaseController
   def new
   end
 
+  def show
+    if params["id"]
+      @task = Task.find(params["id"])
+    end
+  end
+
   def create
+    task = Task.new
     title = params["title"]
+    start = params["start"]
+    if title && start
+      if Task.create(title: title, start: start)
+        @msg = "Task successfully created"
+      end
+    end
+    @msg = "Task creation failed" unless @msg
+    render :new
   end
 
   def update

@@ -1,11 +1,13 @@
 <div class= "row">
   <div class="col m7 offset-m2 left">
     <h5>New Task</h5>
-    <form action="" method= "post">
+    <form action="/todolist" method= "post">
+      <p><%= @msg if @msg %></p>
       <ul>
         <li>Title: <input type="text" name="title"></li>
         <li>Event Date & Time: <input type="text" name="start"></li>
-        <li><input type="submit" name="loginbtn" class="btn" value= "Login"></li>
+        <li><input type="submit" name="add_task" class="btn left" value= "Add Task"></li>
+        <li><a href="/" class="btn right">View Tasks</a></li>
       </ul>
     </form>
   </div>

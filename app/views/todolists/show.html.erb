@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col m7 offset-m2 left">
-    <h5>Saved Tasks</h5>
+    <h5>Saved Task</h5>
+    <% unless @task %>
+      <p><strong>Invalid ID specified</strong></p>
+    <% else %>
       <table class="bordered highlight">
         <thead>
           <tr>
@@ -11,20 +14,15 @@
           </tr>
         </thead>
         <tbody>
-          <% counter = 1%>
-          <% @task.each do |t| %>
             <tr>
-              <td><%= counter %></td>
-              <td><%= t.title %></td>
-              <td><%= t.start %></td>
-              <td><input type="checkbox" name="done"></td>
-              <td><a href="/todolist?<%=t.task_id%>" class="btn">Delete</a></td>
-
+              <td><span>1</span></td>
+              <td><%= @task.title %></td>
+              <td><%= @task.start %></td>
+              <td><%= @task.done %></td>
             </tr>
-            <% counter += 1%>
-          <% end %>
         </tbody>
       </table>
+    <% end %>
       <p>&nbsp;</p>
     <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
   </div>
