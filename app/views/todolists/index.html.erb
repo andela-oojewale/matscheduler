@@ -1,30 +1,34 @@
 <div class="row">
   <div class="col m7 offset-m2 left">
     <h5>Saved Tasks</h5>
-      <table class="bordered highlight">
-        <thead>
-          <tr>
-            <td>S/N</td>
-            <td>Title</td>
-            <td>Date/Time</td>
-            <td>Done</td>
-          </tr>
-        </thead>
-        <tbody>
-          <% counter = 1%>
-          <% @task.each do |t| %>
+    <form action="/todolist" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <p><%= @msg if @msg %></p>
+      <% if @task %>
+        <table class="bordered highlight">
+          <thead>
             <tr>
-              <td><%= counter %></td>
-              <td><%= t.title %></td>
-              <td><%= t.start %></td>
-              <td><input type="checkbox" name="done"></td>
-              <td><a href="/todolist?<%=t.task_id%>" class="btn">Delete</a></td>
-
+              <td>S/N</td>
+              <td>Title</td>
+              <td>Date/Time</td>
             </tr>
-            <% counter += 1%>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% counter = 1%>
+            <% @task.each do |t| %>
+              <tr>
+                <td><%= counter %></td>
+                <td><%= t.title %></td>
+                <td><%= t.start %></td>
+                <td><input type="submit" name="delete_task" value="Delete" class="btn"></td>
+              </tr>
+              <input name="task_id" type="hidden" value="<%=t.task_id%>">
+              <% counter += 1%>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </form>
       <p>&nbsp;</p>
     <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
   </div>

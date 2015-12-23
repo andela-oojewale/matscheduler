@@ -12,6 +12,10 @@ class TodolistsController < Matrack::BaseController
     end
   end
 
+  def edit
+
+  end
+
   def create
     task = Task.new
     title = params["title"]
@@ -30,6 +34,9 @@ class TodolistsController < Matrack::BaseController
   end
 
   def destroy
-
+    id = params["task_id"]
+    @msg = "Task successfully deleted" if Task.destroy(id)
+    @msg = "Unable to delete task" unless @msg
+    render :index
   end
 end
