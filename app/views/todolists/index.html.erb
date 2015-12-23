@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col m7 offset-m2 left">
     <h5>Saved Tasks</h5>
-    <form action="/todolist" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <p><%= @msg if @msg %></p>
+      <% if @msg %>
+        <p><%= @msg %></p>
+        <li><a href="/" class="btn left">View Tasks</a></li>
+        <p>&nbsp;</p>
+      <% end %>
       <% if @task %>
         <table class="bordered highlight">
           <thead>
@@ -20,17 +22,26 @@
                 <td><%= counter %></td>
                 <td><%= t.title %></td>
                 <td><%= t.start %></td>
-                <td><input type="submit" name="delete_task" value="Delete" class="btn"></td>
+                <td>
+                    <a href="/todolist?id=<%= t.task_id %>" class="btn right">Edit</a>
+                </td>
+                <td>
+                  <form action="/todolist" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" name="delete_task" value="Delete" class="btn">
+                    <input name="task_id" type="hidden" value="<%=t.task_id%>">
+                  </form>
+                </td>
               </tr>
-              <input name="task_id" type="hidden" value="<%=t.task_id%>">
+
               <% counter += 1%>
             <% end %>
           </tbody>
         </table>
       <% end %>
-    </form>
       <p>&nbsp;</p>
     <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
+
   </div>
 
 </div>

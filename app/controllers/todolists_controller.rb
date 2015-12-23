@@ -1,6 +1,6 @@
 class TodolistsController < Matrack::BaseController
   def index
-    @task = Task.limit(10)
+    @task = Task.all
   end
 
   def new
@@ -18,19 +18,21 @@ class TodolistsController < Matrack::BaseController
 
   def create
     task = Task.new
-    title = params["title"]
-    start = params["start"]
-    if title && start
-      if Task.create(title: title, start: start)
-        @msg = "Task successfully created"
-      end
-    end
+    task.title = params["title"]
+    task.start = params["start"]
+    task.done = params["done"]
+    @msg = "Task successfully created" if task.save
     @msg = "Task creation failed" unless @msg
     render :new
   end
 
   def update
-
+    id = params["id"].to_i unless params.nil?
+    title = params["title"]
+    start = params["start"]
+    done = params["done"]
+    updater(id, title, start, done)
+    render :show
   end
 
   def destroy
@@ -38,5 +40,17 @@ class TodolistsController < Matrack::BaseController
     @msg = "Task successfully deleted" if Task.destroy(id)
     @msg = "Unable to delete task" unless @msg
     render :index
+  end
+
+  private
+
+  def updater(id, title, start, done)
+    if id && !done.nil?
+      Task.update(id, title: title, start: start, done: "yes")
+    elsif id
+      Task.update(id, title: title, start: start)
+    end
+    @msg = "Task successfully updated"
+    @msg = "Operation failed" unless id
   end
 end

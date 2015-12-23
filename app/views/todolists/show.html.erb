@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col m7 offset-m2 left">
     <h5>Saved Task</h5>
-    <% unless @task %>
-      <p><strong>Invalid ID specified</strong></p>
-    <% else %>
+    <% if @msg %>
+      <p><strong> <%= @msg %> </strong></p>
+    <% elsif @task  %>
       <table class="bordered highlight">
         <thead>
           <tr>
@@ -14,14 +14,28 @@
           </tr>
         </thead>
         <tbody>
+          <form action="/todolist" method="post">
+            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="id" value="<%=params['id']%>">
             <tr>
               <td><span>1</span></td>
-              <td><%= @task.title %></td>
-              <td><%= @task.start %></td>
-              <td><%= @task.done %></td>
+              <td><input type="text" name="title" value="<%= @task.title %>"></td>
+              <td><input type="text" name="start" value="<%= @task.start %>"></td>
+              <td><% if @task.done.downcase == "yes" %>
+                <input type="checkbox" name="done" checked="checked" disabled="true">
+                <% else %>
+                  <input type="checkbox" name="done">
+                <% end %>
+              </td>
+              <td>
+                <input type="submit" name="update" value="Update" class="btn">
+              </td>
             </tr>
+          </form>
         </tbody>
       </table>
+    <% else %>
+      <p><strong>Invalid ID specified</strong></p>
     <% end %>
       <p>&nbsp;</p>
     <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
