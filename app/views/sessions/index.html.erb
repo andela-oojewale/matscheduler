@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col m8 offset-m2">
-    <p>&nbsp;</p>
-    <h3>MatScheduler - Your most reliable planner</h3>
-    <p>&nbsp;</p>
+    <% if @msg %>
+      <p><%= @msg %></p>
+    <% end %>
     <div class="col m5 left">
       <h5>Login</h5>
-      <form action="" method= "post">
+      <form action="user/login" method= "post">
       <ul>
         <li>Email: <input type="text" name="email"></li>
         <li>Password: <input type="password" name="password"></li>
@@ -16,7 +16,7 @@
 
     <div class="col m6 right">
       <h5>New Here? Register</h5>
-      <form action="" method= "post">
+      <form action="user/create" method= "post">
       <ul>
         <li>First Name: <input type="text" name="firstname"></li>
         <li>Last Name: <input type="text" name="lastname"></li>

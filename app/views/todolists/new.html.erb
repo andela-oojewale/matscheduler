@@ -4,11 +4,17 @@
     <form action="/todolist" method= "post">
       <p><%= @msg if @msg %></p>
       <ul>
-        <li>Title: <input type="text" name="title"></li>
-        <li>Event Date & Time: <input type="text" name="start"></li>
-        <li><input type="submit" name="add_task" class="btn left" value= "Add Task"></li>
-        <li><a href="/" class="btn right">View Tasks</a></li>
+        <li>Title:<%= textbox_tag "title" %></li>
+        <li>Event Date & Time: <%= textbox_tag "start" %></li>
+        <li><%= submit_tag "add_task", "Add Task", "btn left" %></li>
+        <li><%= link_tag "/", "btn right", "View Tasks" %></li>
+        <li><%= image_tag "brikenstock.jpg" %></li>
       </ul>
     </form>
+
+    <% form_tag("test", "action") do%>
+    <li>Title:<%= textbox_tag "title" %></li>
+    <li>Title:<%= textbox_tag "title" %></li>
+    <% end %>
   </div>
 </div>
