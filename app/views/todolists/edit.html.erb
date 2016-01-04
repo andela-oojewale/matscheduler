@@ -18,14 +18,14 @@
               <td><%= t.title %></td>
               <td><%= t.start %></td>
               <td><input type="checkbox" name="done"></td>
-              <td><a href="/todolist?<%=t.task_id%>" class="btn">Delete</a></td>
+              <td><%= link_tag "/todolist?<%=t.task_id%>", "btn", "Delete" %></td>
             </tr>
             <% counter += 1%>
           <% end %>
         </tbody>
       </table>
       <p>&nbsp;</p>
-    <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
+    <li><%= link_tag "/todolist/new", "btn left", "Create Tasks" %></li>
   </div>
 
 </div>

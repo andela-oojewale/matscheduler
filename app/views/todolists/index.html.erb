@@ -3,7 +3,7 @@
     <h5>Saved Tasks</h5>
       <% if @msg %>
         <p><%= @msg %></p>
-        <li><a href="/" class="btn left">View Tasks</a></li>
+        <li><%= link_tag "/", "btn left", "View Tasks" %></li>
         <p>&nbsp;</p>
       <% end %>
       <% if @task %>
@@ -28,23 +28,18 @@
                 <td>
                   <form action="/todolist" method="post">
                     <input type="hidden" name="_method" value="delete">
-                    <input type="submit" name="delete_task" value="Delete" class="btn">
+                    <%= submit_tag "delete_task", "Delete", "btn" %>
                     <input name="task_id" type="hidden" value="<%=t.task_id%>">
                   </form>
                 </td>
               </tr>
-
-
-
               <% counter += 1%>
             <% end %>
           </tbody>
         </table>
       <% end %>
       <p>&nbsp;</p>
-    <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
-    <img src="../../images/brikenstock.jpg" >
-
+    <li><%= link_tag "/todolist/new", "btn left", "Create Tasks" %></li>
   </div>
 
 </div>

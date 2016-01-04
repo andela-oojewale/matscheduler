@@ -5,29 +5,11 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.4/css/materialize.min.css">
-  <link href="app/assets/application.css" rel="stylesheet" type= "text/css">
+  <%= include_stylesheet("application")%>
+  <%= display_favicon %>
+  <%= include_javascript("application")%>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style type="text/css">
-      body {
-      background-color: #fff;
-      color: #3DA1C8;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        margin: 0 auto !important;
-        color: #14548C;
-      }
-      .btn {
-        background-color: #14548C !important;
-      }
-      [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: relative;
-        left: 0;
-        margin: auto 1em;
-        visibility: visible;
-      }
-  </style>
-
-</head>
+  </head>
 <body>
   <div class="row">
     <div class="col m8 offset-m2">

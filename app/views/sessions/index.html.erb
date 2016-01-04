@@ -7,9 +7,9 @@
       <h5>Login</h5>
       <form action="user/login" method= "post">
       <ul>
-        <li>Email: <input type="text" name="email"></li>
-        <li>Password: <input type="password" name="password"></li>
-        <li><input type="submit" name="loginbtn" class="btn" value= "Login"></li>
+        <li>Email: <%= textbox_tag "email" %></li>
+        <li>Password: <%= password_tag "password" %></li>
+        <li><%= submit_tag "loginbtn", "Login", "btn" %></li>
       </ul>
       </form>
     </div>
@@ -18,12 +18,12 @@
       <h5>New Here? Register</h5>
       <form action="user/create" method= "post">
       <ul>
-        <li>First Name: <input type="text" name="firstname"></li>
-        <li>Last Name: <input type="text" name="lastname"></li>
-        <li>Email: <input type="text" name="email"></li>
-        <li>Password: <input type="password" name="password"></li>
-        <li>Confirm Password: <input type="password" name="confpswd"></li>
-        <li><input type="submit" name="regbtn" class="btn" value="Register"></li>
+        <li>First Name: <%= textbox_tag "firstname" %></li>
+        <li>Last Name: <%= textbox_tag "lastname" %></li>
+        <li>Email: <%= textbox_tag "email" %></li>
+        <li>Password: <%= password_tag "password" %></li>
+        <li>Confirm Password: <%= password_tag "confpswd" %></li>
+        <li><%= submit_tag "regbtn", "Register", "btn" %></li>
       </ul>
       </form>
     </div>

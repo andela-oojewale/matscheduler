@@ -19,17 +19,15 @@
             <input type="hidden" name="id" value="<%=params['id']%>">
             <tr>
               <td><span>1</span></td>
-              <td><input type="text" name="title" value="<%= @task.title %>"></td>
-              <td><input type="text" name="start" value="<%= @task.start %>"></td>
+              <td><%= textbox_tag("title", "#{ @task.title }")%></td>
+              <td><%= textbox_tag("title", "#{ @task.start }")%></td>
               <td><% if @task.done.downcase == "yes" %>
                 <input type="checkbox" name="done" checked="checked" disabled="true">
                 <% else %>
                   <input type="checkbox" name="done">
                 <% end %>
               </td>
-              <td>
-                <input type="submit" name="update" value="Update" class="btn">
-              </td>
+              <td><%= submit_tag "update", "Update", "btn" %></td>
             </tr>
           </form>
         </tbody>
@@ -38,7 +36,7 @@
       <p><strong>Invalid ID specified</strong></p>
     <% end %>
       <p>&nbsp;</p>
-    <li><a href="/todolist/new" class="btn left">Create Tasks</a></li>
+    <li><%= link_tag "/todolist/new", "btn left", "Create Tasks" %></li>
   </div>
 
 </div>
