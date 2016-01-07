@@ -1,5 +1,7 @@
 class SessionsController < Matrack::BaseController
   def index
+    user = User.last
+      require "pry"; binding.pry
   end
 
   def create

@@ -21,7 +21,7 @@
             <tr>
               <td><span>1</span></td>
               <td><%= textbox_tag("title", "#{ @task.title }")%></td>
-              <td><%= textbox_tag("title", "#{ @task.start }")%></td>
+              <td><%= textbox_tag("start", "#{ @task.start }")%></td>
               <td><% if @task.done.downcase == "yes" %>
                 <input type="checkbox" name="done" checked="checked" disabled="true">
                 <% else %>
