@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col m7 offset-m2 left">
+     <%= link_tag "/user/logout", "btn danger right", "Logout" %>
     <h5>Saved Tasks</h5>
       <% if @msg %>
         <p><%= @msg %></p>
-        <li><%= link_tag "/", "btn left", "View Tasks" %></li>
+        <li><%= link_tag "tasks", "btn left", "View Tasks" %></li>
         <p>&nbsp;</p>
       <% end %>
       <% if @task %>

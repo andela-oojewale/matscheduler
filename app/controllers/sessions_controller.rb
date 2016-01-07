@@ -1,6 +1,5 @@
 class SessionsController < Matrack::BaseController
   def index
-    # require "pry"; binding.pry
   end
 
   def create
@@ -10,7 +9,10 @@ class SessionsController < Matrack::BaseController
       user.lastname = params["lastname"]
       user.email = params["email"]
       user.password = params["password"]
-      return @msg = "User successfully created" if user.save
+      if user.save
+        session[:email] = user.email
+        redirect_to "/todolist/new"
+      end
       return @msg = "User not created"
     end
     @msg = "Password mismatch"
@@ -22,16 +24,16 @@ class SessionsController < Matrack::BaseController
     password = authenticate(params["password"])
     if User.find_cols(email: email, password: password)
       session[:email] = email
-      # require "pry"; binding.pry
-      @msg = "Logged in"
+      redirect_to "tasks"
     else
       @msg = "Invalid credentials"
+      render :index
     end
-    render :index
   end
 
   def logout
-
+    session.clear
+    redirect_to "/"
   end
 
 end
