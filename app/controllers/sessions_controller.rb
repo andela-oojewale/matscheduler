@@ -1,7 +1,5 @@
 class SessionsController < Matrack::BaseController
   def index
-    user = User.last
-      require "pry"; binding.pry
   end
 
   def create
@@ -22,11 +20,12 @@ class SessionsController < Matrack::BaseController
   end
 
   def login
-    email = params["email"]
-    password = authenticate(params["password"])
+    email = params["user_email"]
+    password = authenticate(params["user_password"])
+
     if User.find_cols(email: email, password: password)
       session[:email] = email
-      redirect_to "tasks"
+      redirect_to "/tasks"
     else
       @msg = "Invalid credentials"
       render :index
