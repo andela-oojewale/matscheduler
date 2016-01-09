@@ -22,7 +22,6 @@ class SessionsController < Matrack::BaseController
   def login
     email = params["user_email"]
     password = authenticate(params["user_password"])
-
     if User.find_cols(email: email, password: password)
       session[:email] = email
       redirect_to "/tasks"

@@ -5,7 +5,7 @@
     <% end %>
     <div class="col m5 left">
       <h5>Login</h5>
-      <form action="user/login" method= "post">
+      <form action="/user/login" method= "post">
       <ul>
         <li>Email: <%= textbox_tag "user_email" %></li>
         <li>Password: <%= password_tag "user_password" %></li>
@@ -16,7 +16,7 @@
 
     <div class="col m6 right">
       <h5>New Here? Register</h5>
-      <form action="user/create" method= "post">
+      <form action="/user/create" method= "post">
       <ul>
         <li>First Name: <%= textbox_tag "firstname" %></li>
         <li>Last Name: <%= textbox_tag "lastname" %></li>
