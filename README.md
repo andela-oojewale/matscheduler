@@ -2,10 +2,7 @@
 
 #Introduction
 
-Hi, I'm making a simple TODO app(scheduler). More information soon.
-
-Thank you.
-
+Hi, This is a simple TODO app(scheduler) developed with Matrack.
 
 ## Contributing
 
