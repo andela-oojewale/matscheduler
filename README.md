@@ -4,6 +4,21 @@
 
 Hi, This is a simple TODO app(scheduler) developed with Matrack.
 
+
+## Features
+
+The app allows you to
+
+* add items to your schedule.
+
+* edit items.
+
+* delete items form the schedule.
+
+* view all items.
+
+The app also allows you to login. Though this is just a peripheral feature aimed at showing how authentication can be done with Matrack.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-oojewale/matscheduler.
